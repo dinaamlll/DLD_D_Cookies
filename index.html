@@ -73,8 +73,7 @@
             if (value === 'cookies') {
                 document.getElementById('hiddenContent').classList.remove('hidden');
                 document.getElementById('hiddenContent2').classList.add('hidden');
-                document.getElementById('error').innerHTML = '';
-                textbox.value = ''; // Kosongkan kotak teks jika kata kunci "cookies" ditemukan
+                document.getElementById('error').innerHTML = ''; 
             } else {
                 document.getElementById('hiddenContent').classList.add('hidden');
                 document.getElementById('hiddenContent2').classList.remove('hidden');
@@ -83,13 +82,15 @@
 
             var cookieValue = getCookie("cookie_name");
             if (cookieValue === '4') {
-                textbox.value = 'Flag: TI404{c0ok1es_3nAK_r4s4nY4}'; // Set nilai kotak teks jika nilai cookie adalah '4'
+                document.getElementById('flag').innerHTML = 'TI404{c0ok1es_3nAK_r4s4nY4}';
+            } else {
+                document.getElementById('flag').innerHTML = '';
             }
         }
 
         function submitForm() {
             checkInput();
-            return false;
+            return false; 
         }
 
         function setCookie(name, value, days) {
@@ -114,7 +115,7 @@
             return null;
         }
 
-        setCookie("cookie_name", "4", 30); // Ubah nilai cookie menjadi '4' untuk tujuan demonstrasi
+        setCookie("cookie_name", "cookie_value", 30);
     </script>
 </head>
 
@@ -132,7 +133,8 @@
             <p>I love Cookies!</p>
         </div>
         <div id="hiddenContent2" class="hidden"></div>
-        <div id="error" class="error"></div>
+        <div id="error" class="error"></div> 
+        <p id="flag"></p>
     </div>
 </body>
 
